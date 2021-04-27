@@ -6,8 +6,8 @@
 
 
     $sql = "SELECT Id, URL FROM `Relatorios` WHERE `Baixado` = 0;";
-    echo $sql;
-    echo "\n";
+    //echo $sql;
+    //echo "\n";
 
     try
     {
@@ -22,9 +22,10 @@
                 echo $id;
                 echo "\n";
 
-                /*
                 // Initialize a file URL to the variable
                 $url = rawurldecode($linha['URL']);
+                echo $url;
+                echo "\n";
                 
                 // Initialize the cURL session
                 $ch = curl_init($url);
