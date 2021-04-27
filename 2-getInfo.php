@@ -83,7 +83,6 @@
             $Id = substr($sessoes[$i], $startPos, $tamanho);
             echo "\nID: " . $Id; 
 
-            /*
             // Insere os dados na tabela "Tutorias"
             $sql2 = "SELECT * FROM novas WHERE `IdInterno` = '" . $Id . "';";
             echo $sql2;
@@ -99,17 +98,20 @@
                         $nova_meetingID = $linha['IdInterno'];
                         $nova_Id = $linha['Id'];
                         $nova_Inicio = $linha['Inicio'];
-                        //echo "Id Interno: " . $nova_meetingID;
-                        //echo "\n";
-                        //echo "Id: " . $nova_Id;
-                        //echo "\n";
-                        //echo "Inicio: " . $nova_Inicio;
-                        //echo "\n";
+                        echo "Id Interno: " . $nova_meetingID;
+                        echo "\n";
+                        echo "Id: " . $nova_Id;
+                        echo "\n";
+                        echo "Inicio: " . $nova_Inicio;
+                        echo "\n";
 
                         $sql3 = "INSERT IGNORE INTO tutorias (IdInterno, Id, Inicio) VALUES ('" . $nova_meetingID . "', '" . $nova_Id . "', " . $nova_Inicio . ");";
                         try
                         {
                             $resultado3 = $conecta->query($sql3);
+
+                            echo "Dados Inseridos em TUTORIAS com sucesso!";
+                            echo "\n";
                         }
                         catch(PDOException $e)
                         {
@@ -119,6 +121,8 @@
 
                         // Exclui a entrada recém inserida da tabela Novas
                         $sql4 = "DELETE FROM novas WHERE `IdInterno` = '" . $nova_meetingID . "';";
+                        echo "\n\n" . $sql4;
+                        /*
                         try
                         {
                             $resultado4 = $conecta->query($sql4);
@@ -128,6 +132,7 @@
                             echo 'ERRO!';
                             echo $e;
                         }
+                        */
                     }
                 }
             }
@@ -136,7 +141,6 @@
                 echo 'ERRO!';
                 echo $e;
             }
-            */
         }
         echo "\n=============================================\n";
     }
