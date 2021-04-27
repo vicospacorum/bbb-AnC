@@ -6,8 +6,8 @@
 
     // Seleciona os relatorios a serem processados
     $sql1 = "SELECT `Id` FROM `Relatorios` WHERE `Baixado` = 1 AND `Processado` = 0";
-    echo $sql1;
-    echo "\n";
+    //echo $sql1;
+    //echo "\n";
         
     try
     {
@@ -60,8 +60,8 @@
                 echo "\nCategoria: " . $categoria;
                 echo "\nSala: " . $sala;
                 echo "\nRelatório: " . $relatorio;
-                echo "\nString:\n";
-                print_r($string);
+                //echo "\nString:\n";
+                //print_r($string);
                 echo "\n\n------------- PARTICIPANTES -------------\n";
                 /* DEBUG END */
 
@@ -96,7 +96,7 @@
                     {
                         $resultado4 = $conecta->query($sql4);
                         
-                        echo "Inserção em Pessoas realizada com sucesso!\n";
+                        echo "Processamento de Participante realizado com sucesso!\n";
                     }
                     catch(PDOException $e)
                     {
@@ -122,7 +122,7 @@
                     echo $e;
                 }
                 */
-                $sql6 = "UPDATE `Relatorios` SET `Processado` = 1, , `URL` = '" . $relatorio . "' WHERE `Id` = '" . $meetingId . "';";
+                $sql6 = "UPDATE `Relatorios` SET `Processado` = 1, `URL` = '" . $relatorio . "' WHERE `Id` = '" . $meetingId . "';";
                 echo $sql6;
                 echo "\n";
 
