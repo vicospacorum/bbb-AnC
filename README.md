@@ -4,6 +4,7 @@ The aim of this project is to create a series of PHP scripts that will run on Cr
 ## Technologies
 - PHP 7
 - MySQL
+- XML
 
 ---
 

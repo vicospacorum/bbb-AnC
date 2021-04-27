@@ -1,4 +1,6 @@
 <?php
+    require_once 'connectDB.php';
+
     $today = date("Y-m-d H:i:sZ");
     echo "========== " . $today . "==========\n";
 
@@ -43,8 +45,6 @@
             
             if (!empty($IdInterno))
             {
-                require_once 'connectDB.php';
-
                 $sql = "INSERT IGNORE INTO novas (IdInterno, Id, Inicio) VALUES ('" . $IdInterno . "', '" . $Id . "', " . $DataHora . ");";
                 echo $sql;
                 echo "\n";
@@ -54,8 +54,7 @@
                     $resultado = $conecta->query($sql);
                     
                     // aaaa-mm-dd hh:mm:ss (the MySQL DATETIME format)
-                    $today = date("Y-m-d H:i:s");
-                    echo $today . ": Operação realizada com sucesso!\n";
+                    echo "Nova adicionada com sucesso!\n";
                 }
                 catch(PDOException $e)
                 {
