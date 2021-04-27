@@ -59,7 +59,6 @@
                 // Close file
                 fclose($fp);
                 
-                /*
                 // Marca o Relatório como baixado
                 $sql2 = "UPDATE `Relatorios` SET `Baixado` = 1 WHERE `Id` = '" . $id . "';";
                 try
@@ -75,7 +74,6 @@
                     echo 'ERRO!';
                     echo $e;
                 }
-                */
             }
         }
     }

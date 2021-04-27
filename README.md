@@ -12,8 +12,8 @@ The aim of this project is to create a series of PHP scripts that will run on Cr
 
 #### I. 1-getId.php
 Adds Id, InternalId and Start Time (in UNIXTIME) to table `new`. Needs to be executed during the session.
-
 ###### Runs 4x per hour
+
 #### II. 2-getInfo.php
 Makes an API request for the Session Report of every entry on table `new`. If the request is successfull transfers the data in `new` to the table `tutorings`.
 
