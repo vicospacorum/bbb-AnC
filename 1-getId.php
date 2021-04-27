@@ -14,11 +14,11 @@
     //echo $url;
     //echo "\n";
     print_r($data);
-    echo "\n";
+    echo "\n\n";
     
     $message = $xml->messageKey;
-    echo $message;
-    echo "\n";
+    //echo $message;
+    //echo "\n";
 
     if ($message == "noMeetings")
     {
@@ -26,49 +26,47 @@
     }
     else
     {
-
-    }
-    
-    foreach($xml->meetings->meeting as $sala)
-    {
-        //$xml->meetings->meeting->meetingID;
-        $Id = (string) $sala->meetingID;
-        $IdInterno = (string) $sala->internalMeetingID;
-        $DataHora = (int) $sala->startTime;
-
-        echo $DataHora;
-        echo "\n";
-        $DataHora /= 1000;
-        $DataHora = (int) $DataHora;
-        echo $DataHora;
-        echo "\n";
-
-        
-        if (!empty($IdInterno))
+        foreach($xml->meetings->meeting as $sala)
         {
-            require_once 'connectDB.php';
+            //$xml->meetings->meeting->meetingID;
+            $Id = (string) $sala->meetingID;
+            $IdInterno = (string) $sala->internalMeetingID;
+            $DataHora = (int) $sala->startTime;
 
-            $sql = "INSERT IGNORE INTO novas (IdInterno, Id, Inicio) VALUES ('" . $IdInterno . "', '" . $Id . "', " . $DataHora . ");";
-            echo $sql;
+            echo $DataHora;
             echo "\n";
+            $DataHora /= 1000;
+            $DataHora = (int) $DataHora;
+            echo $DataHora;
+            echo "\n";
+
             
-            try
+            if (!empty($IdInterno))
             {
-                $resultado = $conecta->query($sql);
+                require_once 'connectDB.php';
+
+                $sql = "INSERT IGNORE INTO novas (IdInterno, Id, Inicio) VALUES ('" . $IdInterno . "', '" . $Id . "', " . $DataHora . ");";
+                echo $sql;
+                echo "\n";
                 
-                // aaaa-mm-dd hh:mm:ss (the MySQL DATETIME format)
-                $today = date("Y-m-d H:i:s");
-                echo $today . ": Operação realizada com sucesso!\n";
+                try
+                {
+                    $resultado = $conecta->query($sql);
+                    
+                    // aaaa-mm-dd hh:mm:ss (the MySQL DATETIME format)
+                    $today = date("Y-m-d H:i:s");
+                    echo $today . ": Operação realizada com sucesso!\n";
+                }
+                catch(PDOException $e)
+                {
+                    echo 'ERRO!';
+                    echo $e;
+                }
             }
-            catch(PDOException $e)
+            else
             {
-                echo 'ERRO!';
-                echo $e;
+                echo "Nenhuma Sessão em Andamento\n";
             }
-        }
-        else
-        {
-            echo "Nenhuma Sessão em Andamento\n";
         }
     }
 ?>
