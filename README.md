@@ -36,7 +36,7 @@ Get the *Id* of unrequested recordings from the `tutorings` table and makes and 
 - 1: Requested
 - 2: Downloaded
 - 3: Processed and Stored
-###### Runs every hour
+###### Runs 2x per hour
 
 
 ## PHP Pages

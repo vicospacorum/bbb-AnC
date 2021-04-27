@@ -71,7 +71,7 @@
     } while($running > 0);
 
     echo "\n---------\nResultados:\n";
-    for($i = 0; $i < 2; $i++)
+    for($i = 0; $i < 1; $i++)
     {
         $results = curl_multi_getcontent  ( $curl_arr[$i]  );
         $xml = simplexml_load_string($results);
@@ -82,6 +82,6 @@
         echo "-----\n";
     }
 
-    // ATualizar PLanilha Tutorias mudando Gravação de 0 (Não Solicitado) para 1 (Processando)
+    // Atualizar Planilha Tutorias mudando Gravação de 0 (Não Solicitado) para 1 (Processando)
     echo "\n";
 ?>
