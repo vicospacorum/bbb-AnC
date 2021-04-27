@@ -5,6 +5,7 @@ The aim of this project is to create a series of PHP scripts that will run on Cr
 - PHP 7
 - MySQL
 - XML
+- JSON
 
 ---
 
@@ -23,6 +24,11 @@ Downloads all reports requested by 2-getInfo.php, and updates the corresponding 
 `Downloaded` column:
 - 0: New session
 - 1: Downloaded
+###### Runs every hour
+
+#### V. 5-processReport.php
+Get the *Id* of unprocessed reports from `Reports` and inserts the data received in the JSON files in the `tutoring` table. Add new users to `People` table. Delete the row created by 2-getInfo.php in the `tutoring` table.
+
 
 ## PHP Pages
 
