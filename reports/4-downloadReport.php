@@ -1,12 +1,14 @@
 <?php    
-    require_once '../connectDB.php';
+    require_once 'connectDB.php';
 
     $today = date("Y-m-d H:i:sZ");
     echo "\n========== " . $today . "==========\n";
 
 
     $sql = "SELECT Id, URL FROM `Relatorios` WHERE `Baixado` = 0;";
-    
+    echo $sql;
+    echo "\n";
+
     try
     {
         $resultado = $conecta->query($sql);
@@ -17,7 +19,10 @@
             {
                 // Get Session Id
                 $id = $linha['Id'];
+                echo $id;
+                echo "\n";
 
+                /*
                 // Initialize a file URL to the variable
                 $url = rawurldecode($linha['URL']);
                 
