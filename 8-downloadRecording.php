@@ -30,7 +30,7 @@
                 $sql2 = "UPDATE `Videos` SET `Baixado` = 1, `videoURL` = '" . $id . ".mp4' WHERE `recordingId` = '" . $id . "';";
                 echo $sql2;
                 echo "\n";
-                /*
+                
                 try
                 {
                     $resultado2 = $conecta->query($sql2);
@@ -41,11 +41,11 @@
                     echo 'ERRO!';
                     echo $e;
                 }
-                */
+                
                 $sql3 = "UPDATE `tutorias` SET `Gravacao` = 2 WHERE `IdInterno` = '" . $id . "';";
                 echo $sql3;
                 echo "\n";
-                /*
+                
                 try
                 {
                     $resultado3 = $conecta->query($sql3);
@@ -56,7 +56,7 @@
                     echo 'ERRO!';
                     echo $e;
                 }
-                */
+                
                 file_put_contents('/home/scripts/videos/' . $id . ".mp4", fopen($url, 'r'));
             }
         }
