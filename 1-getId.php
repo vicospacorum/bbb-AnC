@@ -13,12 +13,13 @@
     $xml = simplexml_load_string($data);
     //echo $url;
     //echo "\n";
-    //print_r($data);
-
+    print_r($data);
+    echo "\n";
+    
     $message = $xml->message;
     echo $message;
     echo "\n";
-    
+
     foreach($xml->meetings->meeting as $sala)
     {
         //$xml->meetings->meeting->meetingID;
