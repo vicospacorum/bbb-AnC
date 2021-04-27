@@ -109,7 +109,7 @@
                 $sql5 = "DELETE FROM tutorias WHERE `IdInterno` = '" . $meetingId . "' AND `Id` = '" . $Id . "' AND `Atualizado` = 0;";
                 echo $sql5;
                 echo "\n";
-                /*
+                
                 try
                 {
                     $resultado5 = $conecta->query($sql5);
@@ -121,7 +121,7 @@
                     echo 'ERRO!';
                     echo $e;
                 }
-                */
+                
                 $sql6 = "UPDATE `Relatorios` SET `Processado` = 1, `URL` = '" . $relatorio . "' WHERE `Id` = '" . $meetingId . "';";
                 echo $sql6;
                 echo "\n";
