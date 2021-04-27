@@ -2,7 +2,7 @@
     require_once 'connectDB.php';
 
     $today = date("Y-m-d H:i:sZ");
-    echo "========== " . $today . "==========\n";
+    echo "\n========== " . $today . "==========\n";
 
     $url="https://api.mynaparrot.com/bigbluebutton/hellatech/api/getMeetings?checksum=916fdcc09f4bf874086516b49e3a67ccf88731bc";
     $ch = curl_init();
