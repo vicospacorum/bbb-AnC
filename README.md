@@ -16,8 +16,8 @@ Adds Id, InternalId and Start Time (in UNIXTIME) to table `new`. Needs to be exe
 
 #### II. 2-getInfo.php
 Makes an API request for the Session Report of every entry on table `new`. If the request is successfull transfers the data in `new` to the table `tutorings`.
-
 ###### Runs every hour
+
 #### IV. reports/4-downloadReports.php
 Downloads all reports requested by 2-getInfo.php, and updates the corresponding entry in the `reports` table.
 `Downloaded` column:

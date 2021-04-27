@@ -32,7 +32,7 @@
                 
                 // Inintialize directory name where
                 // file will be save
-                $dir = './';
+                $dir = '/home/scripts/reports/';
                 
                 // Use basename() function to return
                 // the base name of file 
