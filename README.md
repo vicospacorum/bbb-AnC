@@ -11,6 +11,6 @@ The aim of this project is to create a series of PHP scripts that will run on Cr
 ## Scripts
 
 #### 1-getId.php
-Needs to be executed during sessions. Adds Id, InternalId and Start Time (in UNIXTIME) to table `new`.
+Adds Id, InternalId and Start Time (in UNIXTIME) to table `new`. Needs to be executed during the session.
 
 ###### Runs 4x per hour

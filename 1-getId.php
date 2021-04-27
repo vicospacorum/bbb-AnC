@@ -15,8 +15,8 @@
     $xml = simplexml_load_string($data);
     //echo $url;
     //echo "\n";
-    print_r($data);
-    echo "\n\n";
+    //print_r($data);
+    //echo "\n\n";
     
     $message = $xml->messageKey;
     //echo $message;
@@ -35,26 +35,26 @@
             $IdInterno = (string) $sala->internalMeetingID;
             $DataHora = (int) $sala->startTime;
 
-            echo $DataHora;
-            echo "\n";
+            //echo $DataHora;
+            //echo "\n";
             $DataHora /= 1000;
             $DataHora = (int) $DataHora;
-            echo $DataHora;
-            echo "\n";
+            //echo $DataHora;
+            //echo "\n";
 
             
             if (!empty($IdInterno))
             {
                 $sql = "INSERT IGNORE INTO novas (IdInterno, Id, Inicio) VALUES ('" . $IdInterno . "', '" . $Id . "', " . $DataHora . ");";
-                echo $sql;
-                echo "\n";
+                echo "Query:\n" . $sql;
+                echo "\n\n";
                 
                 try
                 {
                     $resultado = $conecta->query($sql);
                     
                     // aaaa-mm-dd hh:mm:ss (the MySQL DATETIME format)
-                    echo "Nova adicionada com sucesso!\n";
+                    echo "Dados de sessão em andamento adicionados com sucesso!\n";
                 }
                 catch(PDOException $e)
                 {
@@ -64,7 +64,7 @@
             }
             else
             {
-                echo "Nenhuma Sessão em Andamento\n";
+                echo "Erro Desconhecido\n";
             }
         }
     }
