@@ -38,6 +38,10 @@ Get the *Id* of unrequested recordings from the `tutorings` table and makes and 
 - 3: Processed and Stored
 ###### Runs 2x per hour
 
+#### VIII. 8-downloadRecording.php
+Get the *Id* of undownloaded recordings from the `Videos` table and downloads it into the Videos directory. It then updates the database accordingly (see item #VI)
+
+
 
 ## PHP Pages
 
