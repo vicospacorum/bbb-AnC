@@ -122,7 +122,7 @@
                         // Exclui a entrada recém inserida da tabela Novas
                         $sql4 = "DELETE FROM novas WHERE `IdInterno` = '" . $nova_meetingID . "';";
                         echo "\n\n" . $sql4;
-                        /*
+                        
                         try
                         {
                             $resultado4 = $conecta->query($sql4);
@@ -132,7 +132,6 @@
                             echo 'ERRO!';
                             echo $e;
                         }
-                        */
                     }
                 }
             }
