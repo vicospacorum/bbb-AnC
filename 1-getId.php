@@ -1,5 +1,5 @@
 <?php
-    $today = date("Y-m-d H:i:s");
+    $today = date("Y-m-d H:i:sZ");
     echo "========== " . $today . "==========\n";
 
     $url="https://api.mynaparrot.com/bigbluebutton/hellatech/api/getMeetings?checksum=916fdcc09f4bf874086516b49e3a67ccf88731bc";
@@ -11,10 +11,14 @@
     curl_close($ch);
     
     $xml = simplexml_load_string($data);
-    echo $url;
-    echo "\n";
-    print_r($data);
+    //echo $url;
+    //echo "\n";
+    //print_r($data);
 
+    $message = $xml->message;
+    echo $message;
+    echo "\n";
+    
     foreach($xml->meetings->meeting as $sala)
     {
         //$xml->meetings->meeting->meetingID;
