@@ -28,9 +28,24 @@ Downloads all reports requested by 2-getInfo.php, and updates the corresponding 
 
 #### V. 5-processReport.php
 Get the *Id* of unprocessed reports from `Reports` and inserts the data received in the JSON files in the `tutoring` table. Add new users to `People` table. Delete the row created by 2-getInfo.php in the `tutoring` table.
+###### Runs every hour
+
+#### VI. 6-requestRecording.php
+Get the *Id* of unrequested recordings from the `tutorings` table and makes and API call for the recordings. If the request is successfull updates the corresponding entry in the `tutorings` table's `Recording` column:
+- 0: No recording
+- 1: Requested
+- 2: Downloaded
+- 3: Processed and Stored
+###### Runs every hour
 
 
 ## PHP Pages
 
 #### III. callback.php
 Callback page for 2-getInfo.php request. Inserts the link for downloading the report in the `Reports` table.
+
+#### VII. mp4callback.php
+Callback page for requestRecording.php request. Inserts the link for downloading the recording in the `Video` table.
+
+---
+###### Note: some names in the codes might be written in portuguese but are referenced here by its english translation
