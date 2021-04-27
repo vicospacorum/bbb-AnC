@@ -16,10 +16,19 @@
     print_r($data);
     echo "\n";
     
-    $message = $xml->message;
+    $message = $xml->messageKey;
     echo $message;
     echo "\n";
 
+    if ($message == "noMeetings")
+    {
+        echo "Nenhuma Sessão em Andamento\n";
+    }
+    else
+    {
+
+    }
+    
     foreach($xml->meetings->meeting as $sala)
     {
         //$xml->meetings->meeting->meetingID;
