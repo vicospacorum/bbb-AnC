@@ -44,7 +44,7 @@
     echo "\n\n\n";
     print_r($sessoes);
     $numSessoes = count($sessoes);
-    /*
+    
     // Faz as Requisições de Relatório à API do BBB
     $curl_arr = array();
     $master = curl_multi_init();
@@ -61,31 +61,32 @@
         curl_multi_exec($master,$running);
     } while($running > 0);
     
-    //echo "Results: ";
+    echo "Results: ";
     for($i = 0; $i < $numSessoes; $i++)
     {
         $results = curl_multi_getcontent  ( $curl_arr[$i]  );
         $xml = simplexml_load_string($results);
-        //echo "\n";
-        //print_r($xml);
-        //echo( $i . "\n" . $sessoes[$i] . $results . "\n");
+        echo "\n";
+        print_r($xml);
+        echo( $i . "\n" . $sessoes[$i] . $results . "\n");
         $returncode = $xml->returncode;
-        // echo "Saída: " . $returncode . "\n";
+        echo "Saída: " . $returncode . "\n";
         
         if ($returncode == "SUCCESS")
         {
-            //echo $sessoes[$i];
+            echo $sessoes[$i];
             //echo "Falhou!";
-            //echo "\n";
+            echo "\n";
             $startPos = strpos($sessoes[$i], "MeetingID=") + 10;
             $endPos = strpos($sessoes[$i], "&reportCallbackUrl=");
             $tamanho = $endPos - $startPos;
             $Id = substr($sessoes[$i], $startPos, $tamanho);
-            //echo "\nID: " . $Id; 
+            echo "\nID: " . $Id; 
 
+            /*
             // Insere os dados na tabela "Tutorias"
             $sql2 = "SELECT * FROM novas WHERE `IdInterno` = '" . $Id . "';";
-            //echo $sql2;
+            echo $sql2;
             
             try
             {
@@ -135,9 +136,9 @@
                 echo 'ERRO!';
                 echo $e;
             }
+            */
         }
-        //echo "\n=============================================\n";
+        echo "\n=============================================\n";
     }
-    */
     echo "done\n";
 ?>
