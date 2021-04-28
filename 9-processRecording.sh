@@ -15,8 +15,9 @@ for video in $(ls /home/girassol/scripts/videos/*.mp4); do
     ffmpeg -i $arquivotmp -vcodec libx265 -crf 24 $arquivonovo
     
     # Envia para a nuvem
-    mv -v $arquivonovo /home/girassol/scripts/videos/proc/nuvem/${arquivo}.mp4
-    #rm $arquivotmp
+    google-drive-ocamlfuse /home/girassol/storage
+    mv -v $arquivonovo /home/girassol/storage/girassol/${arquivo}.mp4
+    rm $arquivotmp
 
     # Gera Link de compartilhamento
 

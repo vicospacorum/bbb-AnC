@@ -6,6 +6,8 @@ The aim of this project is to create a series of PHP scripts that will run on Cr
 - MySQL
 - XML
 - JSON
+- Bash
+- GCE   
 
 ---
 
@@ -36,10 +38,14 @@ Get the *Id* of unrequested recordings from the `tutorings` table and makes and 
 - 1: Requested
 - 2: Downloaded
 - 3: Processed and Stored
-###### Runs 2x per hour
+###### Runs twice every hour
 
 #### VIII. 8-downloadRecording.php
 Get the *Id* of undownloaded recordings from the `Videos` table and downloads it into the Videos directory. It then updates the database accordingly (see item #VI)
+###### Runs twice every hour
+
+#### IX.  9-processRecording.sh
+Uses *ffmpeg* to reduce video size using H.265. It them sends the video file to Google Drive.
 
 
 
