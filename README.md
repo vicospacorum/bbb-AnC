@@ -45,7 +45,8 @@ Get the *Id* of undownloaded recordings from the `Videos` table and downloads it
 ###### Runs twice every hour
 
 #### IX.  9-processRecording.sh
-Uses *ffmpeg* to reduce video size using H.265. It them sends the video file to Google Drive.
+Uses *ffmpeg* to reduce video size using H.265. It them sends the video file to Google Drive and updates the database
+###### Runs every 10 minutes
 
 
 
