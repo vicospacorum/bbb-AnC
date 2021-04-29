@@ -18,7 +18,7 @@
     
     $message = $xml->messageKey;
     //echo $message;
-    //echo "\n";
+    //echo "\n"; 
 
     if ($message == "noMeetings")
     {

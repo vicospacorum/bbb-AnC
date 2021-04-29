@@ -129,7 +129,7 @@
                             $resultado4 = $conecta->query($sql4);
 
                             echo "Dados removidos de NOVAS com sucesso!";
-                            echo "\n";
+                            echo "\n"; 
                         }
                         catch(PDOException $e)
                         {
