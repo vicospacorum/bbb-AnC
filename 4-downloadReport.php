@@ -65,8 +65,7 @@
                 {
                     $resultado2 = $conecta->query($sql2);
 
-                     // aaaa-mm-dd hh:mm:ss (the MySQL DATETIME format)
-                    echo $today . ": Operação realizada com sucesso!\n";
+                    echo "Operação realizada com sucesso!\n";
                 }
                 catch(PDOException $e)
                 {

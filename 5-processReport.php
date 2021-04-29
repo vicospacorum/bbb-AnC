@@ -2,7 +2,7 @@
     require_once 'connectDB.php';
 
     $today = date("Y-m-d H:i:s");
-    echo "\n========== " . $today . "==========\n";
+    echo "\n========== " . $today . "Z==========\n";
 
     // Seleciona os relatorios a serem processados
     $sql1 = "SELECT `Id` FROM `Relatorios` WHERE `Baixado` = 1 AND `Processado` = 0";

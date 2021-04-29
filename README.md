@@ -27,15 +27,15 @@ Requests the Session Report of every entry in the database table `new`. If the r
 ###### Running Sugestion: Once every hour
 
 #### IV. reports/4-downloadReports.php
-Downloads all reports requested by 2-getInfo.php, and updates the corresponding entry in the `reports` table.
+Downloads all reports requested by 2-getInfo.php, and updates the corresponding entry in the `reports` table
 `Downloaded` column:
 - 0: New session
 - 1: Downloaded
-###### Running Sugestion: every hour
+###### Running Sugestion: Once every hour
 
 #### V. 5-processReport.php
-Get the *Id* of unprocessed reports from `Reports` and inserts the data received in the JSON files in the `tutoring` table. Add new users to `People` table. Delete the row created by 2-getInfo.php in the `tutoring` table.
-###### Runs every hour
+Get the *Id* of unprocessed reports from `Reports` and inserts the data from the reports in the `tutoring` table. If necessary adds new users to `People`, and delete the row created by 2-getInfo.php from `tutoring`.
+###### Running Sugestion: Once every hour
 
 #### VI. 6-requestRecording.php
 Get the *Id* of unrequested recordings from the `tutorings` table and makes and API call for the recordings. If the request is successfull updates the corresponding entry in the `tutorings` table's `Recording` column:
