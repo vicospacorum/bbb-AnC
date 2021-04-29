@@ -1,8 +1,8 @@
 <?php    
     require_once 'connectDB.php';
 
-    $today = date("Y-m-d H:i:sZ");
-    echo "\n========== " . $today . "==========\n";
+    $today = date("Y-m-d H:i:s");
+    echo "\n========== " . $today . "Z==========\n";
 
 
     $sql = "SELECT Id, URL FROM `Relatorios` WHERE `Baixado` = 0;";
@@ -66,7 +66,6 @@
                     $resultado2 = $conecta->query($sql2);
 
                      // aaaa-mm-dd hh:mm:ss (the MySQL DATETIME format)
-                    $today = date("Y-m-d H:i:s");
                     echo $today . ": Operação realizada com sucesso!\n";
                 }
                 catch(PDOException $e)
