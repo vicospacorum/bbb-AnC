@@ -13,8 +13,6 @@
     curl_close($ch);
     
     $xml = simplexml_load_string($data);
-    //echo $url;
-    //echo "\n";
     //print_r($data);
     //echo "\n\n";
     
@@ -53,7 +51,6 @@
                 {
                     $resultado = $conecta->query($sql);
                     
-                    // aaaa-mm-dd hh:mm:ss (the MySQL DATETIME format)
                     echo "Dados de sessão em andamento adicionados com sucesso!\n";
                 }
                 catch(PDOException $e)

@@ -1,12 +1,17 @@
 # Big Blue Button Automation and Control
 The aim of this project is to create a series of PHP scripts that will run on Cron and automate the proccess of controlling BigBlueButton's sessions.
 
+## Requirements
+- Google Drive API
+`npm i googleapis`
+
 ## Technologies
-- PHP 7
+- PHP
+- JavaScript
+- Shell
 - MySQL
 - XML
 - JSON
-- Bash
 - GCE   
 
 ---
@@ -45,9 +50,12 @@ Get the *Id* of undownloaded recordings from the `Videos` table and downloads it
 ###### Runs twice every hour
 
 #### IX.  9-processRecording.sh
-Uses *ffmpeg* to reduce video size using H.265. It them sends the video file to Google Drive and updates the database
+Uses *ffmpeg* to reduce video size using H.265. It them sends the video file to Google Drive and updates the database.
 ###### Runs every 10 minutes
 
+#### X. 10-send2cloud.js
+# Uses *ffmpeg* to reduce video size using H.265. 
+###### Runs every 10 minutes
 
 
 ## PHP Pages
