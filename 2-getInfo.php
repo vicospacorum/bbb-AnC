@@ -41,8 +41,7 @@
         echo 'ERRO!';
         echo $e;
     }
-    echo "\n\n\n";
-    print_r($sessoes);
+    //print_r($sessoes);
     $numSessoes = count($sessoes);
     
     // Faz as Requisições de Relatório à API do BBB
@@ -68,23 +67,25 @@
         $xml = simplexml_load_string($results);
         echo "\n";
         print_r($xml);
-        echo( $i . "\n" . $sessoes[$i] . $results . "\n");
+        //echo( $i . "\n" . $sessoes[$i] . $results . "\n");
         $returncode = $xml->returncode;
         echo "Saída: " . $returncode . "\n";
         
         if ($returncode == "SUCCESS")
         {
-            echo $sessoes[$i];
-            echo "\n";
+            //echo $sessoes[$i];
+            //echo "\n";
             $startPos = strpos($sessoes[$i], "MeetingID=") + 10;
             $endPos = strpos($sessoes[$i], "&reportCallbackUrl=");
             $tamanho = $endPos - $startPos;
             $Id = substr($sessoes[$i], $startPos, $tamanho);
-            echo "\nID: " . $Id; 
+            echo "\nID: " . $Id;
+            echo "\n";
 
             // Insere os dados na tabela "Tutorias"
             $sql2 = "SELECT * FROM novas WHERE `IdInterno` = '" . $Id . "';";
             echo $sql2;
+            echo "\n";
             
             try
             {
@@ -120,11 +121,15 @@
 
                         // Exclui a entrada da tabela NOVAS
                         $sql4 = "DELETE FROM novas WHERE `IdInterno` = '" . $nova_meetingID . "';";
-                        echo "\n\n" . $sql4;
+                        echo "\n" . $sql4;
+                        echo "\n";
                         
                         try
                         {
                             $resultado4 = $conecta->query($sql4);
+
+                            echo "Dados removidos de NOVAS com sucesso!";
+                            echo "\n";
                         }
                         catch(PDOException $e)
                         {
