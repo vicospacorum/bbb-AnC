@@ -2,7 +2,7 @@
     require_once 'connectDB.php';
 
     $today = date("Y-m-d H:i:s");
-    echo "\n========== " . $today . "==========\n";
+    echo "\n========== " . $today . "Z==========\n";
 
     $nodes = array();
     $meetingID = array();
@@ -15,7 +15,6 @@
     $sql = "SELECT IdInterno FROM tutorias WHERE Atualizado = 1 AND Gravacao = 0 GROUP BY `IdInterno` LIMIT 1;";
     echo $sql;
     echo "\n";
-
     
     try
     {
@@ -50,10 +49,12 @@
         echo $e;
     }
 
+    /*
     echo "Nodes: \n";
     print_r($nodes);
     echo "\n";
-    
+    */
+
     $curl_arr = array();
     $master = curl_multi_init();
     
@@ -83,5 +84,27 @@
     }
 
     // Atualizar Planilha Tutorias mudando Gravação de 0 (Não Solicitado) para 1 (Processando)
+    /*$sql = "SELECT IdInterno FROM tutorias WHERE Atualizado = 1 AND Gravacao = 0 GROUP BY `IdInterno` LIMIT 1;";
+    echo $sql;
+    echo "\n";
+
+    try
+    {
+        $resultado = $conecta->query($sql);
+        
+        if($resultado != null) 
+        {
+            $i = 0;
+            foreach($resultado as $linha) 
+            {
+            }
+        }
+    }
+    catch(PDOException $e)
+    {
+        echo 'ERRO!';
+        echo $e;
+    }
+    */
     echo "\n";
 ?>
