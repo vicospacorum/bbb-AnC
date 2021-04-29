@@ -1,8 +1,8 @@
 <?php
     require_once 'connectDB.php';
 
-    $today = date("Y-m-d H:i:sZ");
-    echo "\n========== " . $today . "==========\n";
+    $today = date("Y-m-d H:i:s");
+    echo "\n========== " . $today . "Z==========\n";
 
     $sessoes = array();
     $metodo = 'processMynaReport';
@@ -10,9 +10,9 @@
     $query2 = '&reportCallbackUrl=https%3A%2F%2Fhellatech.com.br%2Flisting%2Ffm5rMjyV4Aff%2Fcallback.php';
     $salt = 'FpuoiloGsMtpeqDiGrOw';
 
+    // Cria um Array com as IDs das novas Sessões
     $sql = "SELECT IdInterno FROM novas WHERE 1";
 
-    // Cria um Array com as IDs das novas Sessões
     try
     {
         $resultado = $conecta->query($sql);
@@ -75,7 +75,6 @@
         if ($returncode == "SUCCESS")
         {
             echo $sessoes[$i];
-            //echo "Falhou!";
             echo "\n";
             $startPos = strpos($sessoes[$i], "MeetingID=") + 10;
             $endPos = strpos($sessoes[$i], "&reportCallbackUrl=");
@@ -119,7 +118,7 @@
                             echo $e;
                         }
 
-                        // Exclui a entrada recém inserida da tabela Novas
+                        // Exclui a entrada da tabela NOVAS
                         $sql4 = "DELETE FROM novas WHERE `IdInterno` = '" . $nova_meetingID . "';";
                         echo "\n\n" . $sql4;
                         
@@ -141,7 +140,5 @@
                 echo $e;
             }
         }
-        echo "\n=============================================\n";
     }
-    echo "done\n";
 ?>

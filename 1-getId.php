@@ -1,8 +1,8 @@
 <?php
     require_once 'connectDB.php';
 
-    $today = date("Y-m-d H:i:sZ");
-    echo "\n========== " . $today . "==========\n";
+    $today = date("Y-m-d H:i:s");
+    echo "\n========== " . $today . "Z==========\n";
 
     $url="https://api.mynaparrot.com/bigbluebutton/hellatech/api/getMeetings?checksum=916fdcc09f4bf874086516b49e3a67ccf88731bc";
     $ch = curl_init();
