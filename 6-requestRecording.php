@@ -85,8 +85,7 @@
         $returncode = $xml->returncode;
         echo "Saída: " . $returncode . "\n";
         
-        //if ($returncode == "SUCCESS")
-        if ($returncode == "FAILED")
+        if ($returncode == "SUCCESS")
         {
             $sql2 = "UPDATE  tutorias SET `Gravacao` = 1 WHERE `IdInterno` = '" . $recordID . "';";
             echo $sql2;
