@@ -12,7 +12,7 @@ for video in $(ls /home/scripts/videos/*.mp4 | head -1); do
 
     echo "tmp: $tmp";
     echo "novo $novo";
-    #cp -v $video $tmp
-    #mv -v $video ${dir}proc
-    #ffmpeg -i $tmp -vcodec libx265 -crf 24 $video
+    
+    mv -v $video $tmp
+    ffmpeg -i $tmp -vcodec libx265 -crf 24 $novo
 done;
