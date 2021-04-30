@@ -3,7 +3,7 @@
 
     
     $today = date("Y-m-d H:i:s");
-    echo "\n========== " . $today . "==========\n";
+    echo "\n========== " . $today . "Z==========\n";
 
     $sql = "SELECT recordingId, videoURL FROM `Videos` WHERE `Baixado` = 0;";
     echo $sql;
