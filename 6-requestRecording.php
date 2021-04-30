@@ -12,7 +12,7 @@
     $query2 = '&mp4ReadyUrl=https%3A%2F%2Fhellatech.com.br%2Flisting%2Ffm5rMjyV4Aff%2Fmp4callback.php';
     $salt = 'FpuoiloGsMtpeqDiGrOw';
     
-    $sql = "SELECT IdInterno FROM tutorias WHERE Atualizado = 1 AND Gravacao = 0 GROUP BY `IdInterno` LIMIT 1;";
+    $sql = "SELECT IdInterno FROM tutorias WHERE Atualizado = 1 AND Gravacao = 0 GROUP BY `IdInterno` LIMIT 2;";
     echo $sql;
     echo "\n";
     
@@ -72,7 +72,7 @@
     } while($running > 0);
 
     echo "\n---------\nResultados:\n";
-    for($i = 0; $i < 1; $i++)
+    for($i = 0; $i < 2; $i++)
     {
         $results = curl_multi_getcontent  ( $curl_arr[$i]  );
         $xml = simplexml_load_string($results);
@@ -80,31 +80,30 @@
         echo $nodes[$i] . "\n";
         echo $results . "\n";
         print_r($xml) . "\n";
-        echo "-----\n";
-    }
 
-    // Atualizar Planilha Tutorias mudando Gravação de 0 (Não Solicitado) para 1 (Processando)
-    /*$sql = "SELECT IdInterno FROM tutorias WHERE Atualizado = 1 AND Gravacao = 0 GROUP BY `IdInterno` LIMIT 1;";
-    echo $sql;
-    echo "\n";
-
-    try
-    {
-        $resultado = $conecta->query($sql);
+        // Atualizar Planilha Tutorias mudando Gravação de 0 (Não Solicitado) para 1 (Processando)
+        $returncode = $xml->returncode;
+        echo "Saída: " . $returncode . "\n";
         
-        if($resultado != null) 
+        //if ($returncode == "SUCCESS")
+        if ($returncode == "FAILED")
         {
-            $i = 0;
-            foreach($resultado as $linha) 
+            $sql2 = "UPDATE  tutorias SET `Gravacao` = 1 WHERE `IdInterno` = '" . $recordID . "';";
+            echo $sql2;
+            echo "\n";
+
+            try
             {
+                $resultado2 = $conecta->query($sql2);
+                
+                echo "Operação realizada com sucesso!\n";
+            }
+            catch(PDOException $e)
+            {
+                echo 'ERRO!';
+                echo $e;
             }
         }
     }
-    catch(PDOException $e)
-    {
-        echo 'ERRO!';
-        echo $e;
-    }
-    */
     echo "\n";
 ?>

@@ -38,9 +38,10 @@ Get the *Id* of unprocessed reports from `Reports` and inserts the data from the
 ###### Running Sugestion: Once every hour
 
 #### VI. 6-requestRecording.php
-Get the *Id* of unrequested recordings from the `tutorings` table and makes and API call for the recordings. If the request is successfull updates the corresponding entry in the `tutorings` table's `Recording` column:
+Get the *Id* of up to 2 unrequested recordings and makes and API call for them. If the request is successfull updates the corresponding entry in the `tutorings` table's `Recording` column:
 - 0: No recording
 - 1: Requested
+
 - 2: Downloaded
 - 3: Processed and Stored
 ###### Runs twice every hour
